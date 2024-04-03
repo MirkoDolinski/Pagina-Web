@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulario de Inicio de Sesión</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+    }
+    form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    input[type="text"], input[type="email"], input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    .error {
+        color: #ff0000;
+    }
+    .placeholder {
+        color: #999;
+    }
+</style>
+</head>
+<body>
+
+<script>
+function validarFormulario() {
+    var nombre = document.getElementById("nombre").value;
+    var edad = document.getElementById("edad").value;
+    var correo = document.getElementById("correo").value;
+    var regexCorreo = /^\S+@\S+\.\S+$/;
+
+    if (nombre === "" || edad === "" || correo === "") {
+        alert("Por favor complete todos los campos.");
+        return false;
+    } else if (isNaN(edad)) {
+        alert("La edad debe ser un número.");
+        return false;
+    } else if (!regexCorreo.test(correo)) {
+        alert("El formato del correo es incorrecto.");
+        return false;
+    }
+
+    alert("Formulario enviado correctamente.");
+    return true;
+}
+
+window.onload = function() {
+    document.getElementById("loginForm").onsubmit = validarFormulario;
+};
+</script>
+
+<form id="loginForm">
+    <label for="nombre">Nombre:</label><br>
+    <input type="text" id="nombre" name="nombre" placeholder="Ingrese un nombre..." required><br>
+    
+    <label for="edad">Edad:</label><br>
+    <input type="number" id="edad" name="edad" placeholder="Ingrese su edad..." required><br>
+    
+    <label for="correo">Correo:</label><br>
+    <input type="email" id="correo" name="correo" placeholder="Ingrese su correo..." required><br>
+    
+    <input type="submit" value="Enviar">
+</form>
+
+</body>
+</html>
