@@ -10,7 +10,11 @@
         background-color: #f4f4f4;
         padding: 20px;
     }
-    form {
+    .container {
+        margin: 0 auto;
+        max-width: 400px;
+    }
+    .formulario {
         background-color: #fff;
         padding: 20px;
         border-radius: 5px;
@@ -41,9 +45,32 @@
     .placeholder {
         color: #999;
     }
+    footer {
+        text-align: center;
+        margin-top: 20px;
+    }
 </style>
 </head>
 <body>
+
+<div class="container">
+    <form class="formulario" id="loginForm">
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre" placeholder="Ingrese un nombre..." required><br>
+        
+        <label for="edad">Edad:</label><br>
+        <input type="number" id="edad" name="edad" placeholder="Ingrese su edad..." required><br>
+        
+        <label for="correo">Correo:</label><br>
+        <input type="email" id="correo" name="correo" placeholder="Ingrese su correo..." required><br>
+        
+        <input type="submit" value="Enviar">
+    </form>
+</div>
+
+<footer>
+    <p>Proyecto II Mirko Dolinski & Thiago Cabello</p>
+</footer>
 
 <script>
 function validarFormulario() {
@@ -71,19 +98,6 @@ window.onload = function() {
     document.getElementById("loginForm").onsubmit = validarFormulario;
 };
 </script>
-
-<form id="loginForm">
-    <label for="nombre">Nombre:</label><br>
-    <input type="text" id="nombre" name="nombre" placeholder="Ingrese un nombre..." required><br>
-    
-    <label for="edad">Edad:</label><br>
-    <input type="number" id="edad" name="edad" placeholder="Ingrese su edad..." required><br>
-    
-    <label for="correo">Correo:</label><br>
-    <input type="email" id="correo" name="correo" placeholder="Ingrese su correo..." required><br>
-    
-    <input type="submit" value="Enviar">
-</form>
 
 </body>
 </html>
